@@ -1,5 +1,7 @@
+<?php
+    include('auth.php');
 
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,44 +9,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css2/style.css" />
+ 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
 
 
-    <title>twitter</title>
+    <title>Welcome Home</title>
 </head>
-
 
 <body>
 
 
-    <form action="index.php" method="post">
-        <div class="container" align="left">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+       
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <div class="row">
-                <div class="col-md-6" color="white">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                   
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                   <?php if(isset($_SESSION['id'])) { ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Welcome you,
+                        </a>
 
-                    <div class="text1"> <i class="fa fa-search"><b> Follow your interests.</b></i></div> <br>
-                    <div class="text1"> <i class="fa fa-users"><b> Hear what people are talking about.</b></i></div><br>
-                    <div class="text1"> <i class="fa fa-comment-o"><b> Join the conversation.</b></i></div><br>
-
-                </div>
-                <div class="col-md-5">
-
-                    <img src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" alt="..." width="70" height="70">
-                    <h5>See what’s happening in the world right now</h5>
-                    <h6>Join Twitter today.</h6>
-                    <a href="registration.php" class="btn btn-primary btn-lg btn-block" type="submit" name="create">Sign up</a>
-                    <a href="login.php" class="btn btn-light btn-lg btn-block" type="submit" name="create">Log in </a>
-
-
-                </div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="login.php">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </li>
+                   <?php } else {?>
+                    <li class="nav-item">
+                        <a class="nav-link " href="login.php">Login</a>
+                    </li>
+                    <?php } ?>
+                </ul>
+               
             </div>
         </div>
-    </form>
-
-
-
+    </nav>
+    <div class="form">
+        <p>Welcome <?php echo $_SESSION['username']; ?>!</p>
+        <p>This is homepage and secure area.</p>
+        <p><a  href="dashboard.php">Dashboard</a></p>
+        <a  href="login.php">Logout</a>
+    </div>
+    
 </body>
 
 </html>
