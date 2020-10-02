@@ -1,0 +1,29 @@
+.text1{
+  color: white;
+}
+
+
+body {
+  background-image: url('screentwitter.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+
+.col-md-6{
+  
+  padding-top: 170px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 120px;
+  
+}
+.col-md-5{
+  
+  padding-top: 120px;
+  
+  padding-left: 150px;
+  
+}
